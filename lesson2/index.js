@@ -41,5 +41,5 @@ const makePurchaseStat = (purchases) => {
     }, {total: 0, categories: {}, months: {}});
 };
 
-const ExampleResult = makePurchaseStat(purchases);
-console.log(ExampleResult);
+const ExampResult = makePurchaseStat(purchases);
+console.log(ExampResult);
