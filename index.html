@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    .completed {
+      text-decoration: line-through;
+      color: grey;
+    }
+
+    .task-actions button {
+      margin-left: 5px;
+    }
+
+    .task-item {
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 0.3s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .task-item.completed {
+      opacity: 0.6;
+      transform: translateY(0);
+      animation: none;
+    }
+
+  </style>
+</head>
+<body>
+<h1>Список задач</h1>
+
+<div>
+  <input type="text" id="task-input" placeholder="Добавьте новую задачу">
+  <button id="add-task-btn">Добавить задачу</button>
+</div>
+
+<ul id="task-list"></ul>
+
+<script src="index.js"></script>
+</body>
+</html>
