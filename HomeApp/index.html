@@ -34,67 +34,100 @@
 <section>
     <div class="wrapper">
         <div class="navigation-container">
-            <div class="navigation-container-left">
-                <button class="navigation-link" type="button" data-filter="all">ALL</button>
-                <button class="navigation-link" type="button" data-filter="documentary">DOCUMENTARY</button>
-                <button class="navigation-link" type="button" data-filter="comedy">COMEDY</button>
-                <button class="navigation-link" type="button" data-filter="horror">HORROR</button>
-                <button class="navigation-link" type="button" data-filter="crime">CRIME</button>
-                <button class="navigation-link" type="button" data-filter="adventure">ADVENTURE</button>
-                <button class="navigation-link" type="button" data-filter="drama">DRAMA</button>
-            </div>
-            <div class="navigation-container-right">
-                <span>SORT BY</span>
-                <button id="sort" type="button">RELEASE DATE</button>
-            </div>
+        <div class="navigation-container-left">
+            <button class="navigation-link" type="button" data-filter="all">ALL</button>
+            <button class="navigation-link" type="button" data-filter="documentary">DOCUMENTARY</button>
+            <button class="navigation-link" type="button" data-filter="comedy">COMEDY</button>
+            <button class="navigation-link" type="button" data-filter="horror">HORROR</button>
+            <button class="navigation-link" type="button" data-filter="crime">CRIME</button>
+            <button class="navigation-link" type="button" data-filter="adventure">ADVENTURE</button>
+            <button class="navigation-link" type="button" data-filter="drama">DRAMA</button>
         </div>
+        <div class="navigation-container-right">
+            <span>SORT BY</span>
+            <button id="sort" type="button">RELEASE DATE</button>
+        </div>
+    </div>
+        <div class="line"></div>
         <div class="wrapper-cards" id="body">
             <div class="cards-container" data-event-date="2004" data-cat="adventure">
                 <img src="img/pulpfiction.jpg" alt="Pulpfiction">
-                <div>
+                <div class="text-container">
                     <span>Pulp Fiction</span>
-                    <span>2004</span>
-                    <p>Action & Adventure</p>
+                    <span class="dateFilm">2004</span>
                 </div>
+                <p>Action & Adventure</p>
             </div>
             <div class="cards-container" data-event-date="2003" data-cat="documentary">
                 <img src="img/bohemian.jpg" alt="">
-                <div>
+                <div class="text-container">
                     <span>Bohemian Rhapsody</span>
-                    <span>2003</span>
-                    <p>Drama, Biography, Music</p>
+                    <span class="dateFilm">2003</span>
                 </div>
+                <p>Drama, Biography, Music</p>
             </div>
             <div class="cards-container" data-event-date="1994" data-cat="horror">
                 <img src="img/killbill.jpg" alt="">
-                <div>
+                <div class="text-container">
                     <span>Kill Bill: Vol 2</span>
-                    <span>1994</span>
-                    <p>Oscar winning Movie</p>
+                    <span class="dateFilm">1994</span>
                 </div>
+                <p>Oscar winning Movie</p>
             </div>
             <div class="cards-container" data-event-date="2004" data-cat="adventure">
                 <img src="img/Bitmap.jpg" alt="">
-                <div>
+                <div class="text-container">
                     <span>Avengers: War of Infinity</span>
-                    <span>2004</span>
-                    <p>Action & Adventure</p>
+                    <span class="dateFilm">2004</span>
                 </div>
+                <p>Action & Adventure</p>
             </div>
             <div class="cards-container" data-event-date="2003" data-cat="adventure">
                 <img src="img/inception.jpg" alt="">
-                <div>
+                <div class="text-container">
                     <span>Inception</span>
-                    <span>2003</span>
-                    <p>Action & Adventure</p>
+                    <span class="dateFilm">2003</span>
                 </div>
+                <p>Action & Adventure</p>
             </div>
             <div class="cards-container" data-event-date="1994" data-cat="crime">
                 <img src="img/dogs.jpg" alt="">
-                <div>
+                <div class="text-container">
                     <span>Reservoir dogs</span>
-                    <span>1994</span>
-                    <p>Oscar winning Movie</p>
+                    <span class="dateFilm">1994</span>
+                </div>
+                <p>Oscar winning Movie</p>
+            </div>
+            <div id="modal" class="modal-overlay">
+                <div class="modal-content">
+                    <p id="modal-text">Вы уверены?</p>
+                    <div class="modal-buttons">
+                        <button id="modal-close">Close</button>
+                        <button id="modal-confirm">Confirm</button>
+                    </div>
+                </div>
+            </div>
+            <div id="modal-edit" class="modal-overlay">
+                <div class="modal-content-edit">
+                    <form id="edit-form">
+                        <h3>Редактировать карточку</h3>
+                        <label>
+                            Название:
+                            <input type="text" id="edit-title" required />
+                        </label>
+                        <label>
+                            Год:
+                            <input type="number" id="edit-year" required />
+                        </label>
+                        <label>
+                            Описание:
+                            <textarea id="edit-desc" rows="3" required></textarea>
+                        </label>
+                        <div class="modal-buttons">
+                            <button type="button" id="modal-edit-close">Отмена</button>
+                            <button type="submit">Сохранить</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
