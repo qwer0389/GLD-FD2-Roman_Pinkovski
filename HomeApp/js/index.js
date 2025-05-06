@@ -164,3 +164,51 @@ document.addEventListener("DOMContentLoaded", () => {
 		currentCard = null;
 	});
 });
+
+// Функция для получения координат
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(
+			savePositionToComment,
+			showError,
+			{
+				enableHighAccuracy: true,
+				maximumAge: 0,
+				timeout: 10000
+			}
+		);
+	} else {
+		alert("Геолокация не поддерживается вашим браузером");
+	}
+}
+
+// Сохраняем координаты в комментарий HTML
+function savePositionToComment(position) {
+	const coords = {
+		latitude: position.coords.latitude,
+		longitude: position.coords.longitude,
+		accuracy: position.coords.accuracy,
+		timestamp: new Date(position.timestamp).toISOString()
+	};
+
+	// Создаем комментарий с координатами
+	const comment = document.createComment(
+		` Геолокация: ${coords.latitude}, ${coords.longitude} ` +
+		`(Точность: ±${Math.round(coords.accuracy)} м, ${coords.timestamp}) `
+	);
+
+	// Добавляем комментарий в начало body
+	document.body.prepend(comment);
+
+	alert(`Координаты сохранены в HTML-комментарии!\n` +
+		`${coords.latitude}, ${coords.longitude}`);
+}
+
+// Обработка ошибок
+function showError(error) {
+	alert("Ошибка при получении геолокации: " +
+		(error.message || "Неизвестная ошибка"));
+}
+
+// Запускаем при загрузке страницы
+window.onload = getLocation;
